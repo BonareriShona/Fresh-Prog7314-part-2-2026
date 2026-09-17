@@ -1,12 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.ShelaStudio" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary -->
         <item name="colorPrimary">@color/chocolate_brown</item>
+        <item name="colorPrimaryVariant">@color/chocolate_brown_dark</item>
         <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary -->
         <item name="colorSecondary">@color/soft_pink</item>
         <item name="colorOnSecondary">@color/chocolate_brown</item>
+
+        <!-- Backgrounds -->
         <item name="android:colorBackground">@color/warm_cream</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/dark_brown_text</item>
         <item name="colorOnSurfaceVariant">@color/muted_brown</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/warm_cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <!-- Typography defaults -->
+        <item name="android:fontFamily">@font/inter_regular</item>
     </style>
 </resources>
