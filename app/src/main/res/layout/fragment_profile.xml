@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Community"
+        android:text="Profile"
         android:textAppearance="@style/TextAppearance.ShelaStudio.Headline"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Community feed coming later"
+        android:text="Profile content coming on Day 5"
         android:textAppearance="@style/TextAppearance.ShelaStudio.BodyMuted"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
