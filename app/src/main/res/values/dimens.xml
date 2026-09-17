@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- ===== SPACING ===== -->
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_sm">12dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <!-- ===== SCREEN MARGINS ===== -->
+    <dimen name="screen_margin">20dp</dimen>
+    <dimen name="screen_margin_small">16dp</dimen>
+
+    <!-- ===== CORNER RADII ===== -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- ===== COMPONENT HEIGHTS ===== -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="input_height">52dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="icon_size_sm">20dp</dimen>
+    <dimen name="icon_size_md">24dp</dimen>
+    <dimen name="icon_size_lg">28dp</dimen>
+    <dimen name="icon_size_xl">48dp</dimen>
+
+    <!-- ===== TEXT SIZES ===== -->
+    <dimen name="text_display">32sp</dimen>
+    <dimen name="text_headline">28sp</dimen>
+    <dimen name="text_title">22sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_label">12sp</dimen>
+    <dimen name="text_caption">11sp</dimen>
+
+    <!-- ===== CARD ELEVATION ===== -->
+    <dimen name="elevation_card">2dp</dimen>
+    <dimen name="elevation_raised">4dp</dimen>
+    <dimen name="elevation_nav">8dp</dimen>
+</resources>
