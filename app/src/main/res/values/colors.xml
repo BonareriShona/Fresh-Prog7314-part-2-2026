@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== BRAND COLOURS ===== -->
+    <color name="chocolate_brown">#5A321F</color>
+    <color name="chocolate_brown_dark">#4A2818</color>
+    <color name="soft_pink">#F4C6CC</color>
+    <color name="soft_pink_light">#FADCE0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="warm_cream">#FCF8F5</color>
+    <color name="light_blush">#FFF1F2</color>
+    <color name="dark_brown_text">#3A2116</color>
+    <color name="muted_brown">#806D63</color>
+
+    <!-- ===== SEMANTIC MAPPINGS ===== -->
+    <color name="primary">@color/chocolate_brown</color>
+    <color name="primary_variant">@color/chocolate_brown_dark</color>
+    <color name="secondary">@color/soft_pink</color>
+    <color name="background">@color/warm_cream</color>
+    <color name="surface">@color/white</color>
+    <color name="on_primary">@color/white</color>
+    <color name="on_surface">@color/dark_brown_text</color>
+    <color name="on_surface_variant">@color/muted_brown</color>
+
+    <!-- ===== STATE COLOURS ===== -->
+    <color name="error">#B00020</color>
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+
+    <!-- ===== UI ELEMENTS ===== -->
+    <color name="divider">#E8DDD8</color>
+    <color name="disabled">#C9B8B0</color>
+    <color name="input_background">#FFF1F2</color>
+    <color name="input_border">#F4C6CC</color>
+    <color name="nav_inactive">#B8A69E</color>
+    <color name="nav_active">@color/chocolate_brown</color>
+
+    <!-- ===== CHART / STATS ===== -->
+    <color name="chart_bar">@color/chocolate_brown</color>
+    <color name="chart_bar_light">@color/soft_pink</color>
+
+    <!-- ===== TRANSPARENT ===== -->
+    <color name="transparent">#00000000</color>
+    <color name="scrim">#40000000</color>
+</resources>

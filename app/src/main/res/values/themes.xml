@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.ShelaStudio" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/chocolate_brown</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/soft_pink</item>
+        <item name="colorOnSecondary">@color/chocolate_brown</item>
+        <item name="android:colorBackground">@color/warm_cream</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/dark_brown_text</item>
+        <item name="colorOnSurfaceVariant">@color/muted_brown</item>
+    </style>
+</resources>
