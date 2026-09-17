@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ShelaStudio</string>
     <string name="tagline">YOUR WARDROBE, REIMAGINED</string>
+    <string name="login_subtitle">Let\'s get you styled</string>
+    <string name="use_fingerprint_to_access">Use Fingerprint To Access</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
 </resources>
