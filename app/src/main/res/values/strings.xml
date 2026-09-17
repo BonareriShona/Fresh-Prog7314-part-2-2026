@@ -11,4 +11,6 @@
     <string name="nav_create">Create</string>
     <string name="nav_community">Community</string>
     <string name="nav_profile">Profile</string>
+    <string name="good_morning">Good morning</string>
+    <string name="lets_create_chic">Let's create something chic today.</string>
 </resources>
