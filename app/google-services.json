@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371626592710",
+    "project_id": "shelastudio",
+    "storage_bucket": "shelastudio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371626592710:android:f25176512f61d7bd09cac7",
+        "android_client_info": {
+          "package_name": "com.example.shelastudio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgo7G-8tvcITh-_AZR2qqg00B8rndHjmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
