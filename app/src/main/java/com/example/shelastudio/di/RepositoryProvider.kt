@@ -3,22 +3,26 @@ package com.example.shelastudio.di
 import com.example.shelastudio.data.repository.FirebaseOutfitRepository
 import com.example.shelastudio.data.repository.FirebasePreferenceRepository
 import com.example.shelastudio.data.repository.FirebaseWardrobeRepository
+import com.example.shelastudio.data.repository.NetworkRecommendationRepository
+import com.example.shelastudio.data.repository.NetworkWeatherRepository
 import com.example.shelastudio.data.repository.OutfitRepository
 import com.example.shelastudio.data.repository.PreferenceRepository
 import com.example.shelastudio.data.repository.WardrobeRepository
+import com.example.shelastudio.data.repository.WeatherRepository
 
 /**
- * Central place where repository singletons live.
- *
- * Screens and ViewModels access repositories through this object, never
- * instantiating Firebase classes directly. This makes it trivial to swap
- * implementations (e.g., adding a fake repository for tests).
+ * Central repository provider.
+ *   - Firebase handles wardrobe, outfits, preferences
+ *   - REST API handles weather + recommendations
  */
 object RepositoryProvider {
 
+    // Firebase-backed
     val wardrobe: WardrobeRepository by lazy { FirebaseWardrobeRepository() }
     val outfits: OutfitRepository by lazy { FirebaseOutfitRepository() }
     val preferences: PreferenceRepository by lazy { FirebasePreferenceRepository() }
 
-    // weather: added in Part 8 when REST API is ready
+    // REST API-backed
+    val weather: WeatherRepository by lazy { NetworkWeatherRepository() }
+    val recommendations: NetworkRecommendationRepository by lazy { NetworkRecommendationRepository() }
 }

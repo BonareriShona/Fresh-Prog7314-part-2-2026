@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_xs"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:strokeColor="@color/divider"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Collage of 3 slots (Top, Bottom, Shoes) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/soft_pink_light">
+
+            <!-- Top image (left half) -->
+            <ImageView
+                android:id="@+id/ivTop"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop" />
+
+            <!-- Bottom image (top right) -->
+            <ImageView
+                android:id="@+id/ivBottom"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="8dp"
+                android:scaleType="centerCrop" />
+
+            <!-- Shoes image (bottom center) -->
+            <ImageView
+                android:id="@+id/ivShoes"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="4dp"
+                android:scaleType="centerCrop" />
+
+            <!-- Placeholder text when no images -->
+            <TextView
+                android:id="@+id/tvNoImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="No items"
+                android:textAppearance="@style/TextAppearance.ShelaStudio.Caption"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <TextView
+                android:id="@+id/tvOutfitName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Office Chic"
+                android:textAppearance="@style/TextAppearance.ShelaStudio.Body"
+                android:textColor="@color/dark_brown_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvOutfitMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Work · 3 items"
+                android:textAppearance="@style/TextAppearance.ShelaStudio.Caption" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

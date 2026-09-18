@@ -25,11 +25,12 @@
     <string name="login_subtitle">Let\'s get you styled</string>
     <string name="sign_in_with_google">Sign in with Google</string>
 
-    <!-- Home -->
-    <string name="good_morning">Good morning</string>
-    <string name="lets_create_chic">Let\'s create something chic today.</string>
+    <!-- Home screen -->
+    <string name="greeting">Good morning ✨</string>
+    <string name="greeting_sub">Let\'s build a look you\'ll love.</string>
     <string name="recommended_outfit">Recommended Outfit</string>
-    <string name="view_full_outfit">View Full Outfit</string>
+    <string name="for_today">For today</string>
+    <string name="view_outfit">View Outfit</string>
     <string name="quick_actions">Quick Actions</string>
     <string name="add_item">Add Item</string>
     <string name="create_outfit">Create Outfit</string>
@@ -39,6 +40,14 @@
     <string name="view_insights">View Insights</string>
     <string name="recent_activity">Recent Activity</string>
     <string name="view_all">View All</string>
+    <string name="no_recent_activity">No recent activity</string>
+
+    <!-- Weather Suggestions screen -->
+    <string name="weather_suggestions">Weather Suggestions</string>
+    <string name="recommended_for_today">Recommended For Today</string>
+    <string name="no_matching_outfits">No matching outfits</string>
+    <string name="no_matching_outfits_sub">Add more wardrobe items to get suggestions</string>
+    <string name="view_outfits_arrow">View outfits →</string>
 
     <!-- Bottom Nav -->
     <string name="nav_home">Home</string>

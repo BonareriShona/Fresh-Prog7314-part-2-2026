@@ -84,6 +84,11 @@ class ClosetFragment : Fragment() {
             Log.d(TAG, "Add Item clicked")
             findNavController().navigate(R.id.action_closetFragment_to_addItemFragment)
         }
+
+        binding.btnMyOutfits.setOnClickListener {
+            Log.d(TAG, "My Outfits clicked")
+            findNavController().navigate(R.id.action_closetFragment_to_myOutfitsFragment)
+        }
     }
 
     private fun observeViewModel() {

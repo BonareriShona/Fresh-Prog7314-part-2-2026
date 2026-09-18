@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/warm_cream">
 
-    <!-- Header -->
+    <!-- Header title -->
     <TextView
         android:id="@+id/tvClosetTitle"
         android:layout_width="wrap_content"
@@ -18,20 +18,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Add Item button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddItem"
-        style="@style/Widget.ShelaStudio.Button.Primary"
+    <!-- Button row: Outfits + Add (single LinearLayout so no constraint conflicts) -->
+    <LinearLayout
+        android:id="@+id/llHeaderButtons"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/screen_margin"
-        android:paddingHorizontal="@dimen/spacing_md"
-        android:text="+ Add Item"
-        android:textSize="13sp"
-        app:cornerRadius="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@id/tvClosetTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvClosetTitle" />
+        app:layout_constraintTop_toTopOf="@id/tvClosetTitle">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMyOutfits"
+            style="@style/Widget.ShelaStudio.Button.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:text="Outfits"
+            android:textSize="13sp"
+            app:cornerRadius="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddItem"
+            style="@style/Widget.ShelaStudio.Button.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingHorizontal="@dimen/spacing_md"
+            android:text="+ Add"
+            android:textSize="13sp"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
 
     <!-- Search bar (visual placeholder for now) -->
     <com.google.android.material.card.MaterialCardView
@@ -195,7 +215,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"
-            android:text="Tap + Add Item to get started"
+            android:text="Tap + Add to get started"
             android:textAppearance="@style/TextAppearance.ShelaStudio.BodyMuted" />
     </LinearLayout>
 
