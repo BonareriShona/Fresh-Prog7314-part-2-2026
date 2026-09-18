@@ -1,12 +1,12 @@
 package com.example.shelastudio.data.repository
 
-import com.example.shelastudio.data.model.Outfit
+import com.example.shelastudio.data.model.WeatherData
 
-interface OutfitRepository {
+interface WeatherRepository {
 
-    suspend fun getOutfits(): Result<List<Outfit>>
-    suspend fun getOutfit(outfitId: String): Result<Outfit?>
-    suspend fun createOutfit(outfit: Outfit): Result<Outfit>
-    suspend fun updateOutfit(outfit: Outfit): Result<Unit>
-    suspend fun deleteOutfit(outfitId: String): Result<Unit>
+    /** Fetches current weather for a given city (or user's location). */
+    suspend fun getCurrentWeather(location: String): Result<WeatherData>
+
+    /** Fetches forecast for the next N days. */
+    suspend fun getForecast(location: String, days: Int = 3): Result<List<WeatherData>>
 }
