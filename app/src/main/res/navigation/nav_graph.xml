@@ -16,15 +16,15 @@
 
         <action
             android:id="@+id/action_closetFragment_to_addItemFragment"
-            app:destination="@id/addItemFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
+            app:destination="@id/addItemFragment" />
 
         <action
             android:id="@+id/action_closetFragment_to_itemDetailFragment"
-            app:destination="@id/itemDetailFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
+            app:destination="@id/itemDetailFragment" />
+
+        <action
+            android:id="@+id/action_closetFragment_to_myOutfitsFragment"
+            app:destination="@id/myOutfitsFragment" />
 
     </fragment>
 
@@ -37,6 +37,31 @@
         android:id="@+id/itemDetailFragment"
         android:name="com.example.shelastudio.ui.closet.ItemDetailFragment"
         android:label="Item Detail" />
+
+    <fragment
+        android:id="@+id/myOutfitsFragment"
+        android:name="com.example.shelastudio.ui.outfit.MyOutfitsFragment"
+        android:label="My Outfits">
+
+        <action
+            android:id="@+id/action_myOutfitsFragment_to_createOutfitFragment"
+            app:destination="@id/createOutfitFragment" />
+
+        <action
+            android:id="@+id/action_myOutfitsFragment_to_outfitDetailFragment"
+            app:destination="@id/outfitDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/createOutfitFragment"
+        android:name="com.example.shelastudio.ui.outfit.CreateOutfitFragment"
+        android:label="Create Outfit" />
+
+    <fragment
+        android:id="@+id/outfitDetailFragment"
+        android:name="com.example.shelastudio.ui.outfit.OutfitDetailFragment"
+        android:label="Outfit Detail" />
 
     <fragment
         android:id="@+id/createFragment"
