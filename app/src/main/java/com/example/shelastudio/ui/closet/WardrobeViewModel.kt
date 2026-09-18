@@ -11,9 +11,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * UI state for the wardrobe screen.
- */
 sealed class WardrobeUiState {
     object Loading : WardrobeUiState()
     data class Success(val items: List<ClothingItem>) : WardrobeUiState()
@@ -31,11 +28,9 @@ class WardrobeViewModel(
     private val _uiState = MutableStateFlow<WardrobeUiState>(WardrobeUiState.Loading)
     val uiState: StateFlow<WardrobeUiState> = _uiState.asStateFlow()
 
-    /** Currently selected filter category. "All" shows everything. */
     private val _selectedCategory = MutableStateFlow("All")
     val selectedCategory: StateFlow<String> = _selectedCategory.asStateFlow()
 
-    /** Full list of items (unfiltered), kept in memory for quick filtering. */
     private var allItems: List<ClothingItem> = emptyList()
 
     init {
@@ -80,10 +75,23 @@ class WardrobeViewModel(
             repository.deleteClothingItem(itemId)
                 .onSuccess {
                     Log.i(TAG, "Deleted $itemId")
-                    loadWardrobe()   // refresh
+                    loadWardrobe()
                 }
                 .onFailure { e ->
                     Log.e(TAG, "Delete failed", e)
+                }
+        }
+    }
+
+    fun saveItem(item: ClothingItem) {
+        viewModelScope.launch {
+            Log.d(TAG, "Saving item ${item.name}")
+            repository.addClothingItem(item)
+                .onSuccess {
+                    Log.i(TAG, "Item saved successfully")
+                }
+                .onFailure { e ->
+                    Log.e(TAG, "Save failed", e)
                 }
         }
     }

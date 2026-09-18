@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shelastudio.data.model.ClothingItem
 import com.example.shelastudio.databinding.ItemClothingCardBinding
 import com.example.shelastudio.util.ImageUtils
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-/**
- * Adapter for the wardrobe grid.
- * Uses ListAdapter + DiffUtil for efficient updates.
- */
 class ClothingAdapter(
     private val onItemClick: (ClothingItem) -> Unit
 ) : ListAdapter<ClothingItem, ClothingAdapter.ItemViewHolder>(DIFF) {
@@ -55,22 +55,22 @@ class ClothingAdapter(
                 }
             }
 
-            // Decode Base64 image on a background thread to avoid UI jank
+            // Reset image state
             binding.ivItemImage.setImageBitmap(null)
-            binding.ivItemImage.setBackgroundColor(0xFFFADCE0.toInt()) // soft pink while loading
+            binding.ivItemImage.setBackgroundColor(0xFFFADCE0.toInt())
 
             if (item.imageBase64.isNotEmpty()) {
-                // Simple background decode using the itemView's tag to avoid recycling issues
                 val tag = item.itemId
                 binding.ivItemImage.tag = tag
 
-                android.os.AsyncTask.execute {
-                    val bitmap: Bitmap? = ImageUtils.base64ToBitmap(item.imageBase64)
-                    binding.ivItemImage.post {
-                        if (binding.ivItemImage.tag == tag && bitmap != null) {
-                            binding.ivItemImage.setImageBitmap(bitmap)
-                            binding.ivItemImage.setBackgroundColor(0x00000000)
-                        }
+                // Decode on a background thread; post back if this view still belongs to the same item
+                CoroutineScope(Dispatchers.Main).launch {
+                    val bitmap: Bitmap? = withContext(Dispatchers.IO) {
+                        ImageUtils.base64ToBitmap(item.imageBase64)
+                    }
+                    if (binding.ivItemImage.tag == tag && bitmap != null) {
+                        binding.ivItemImage.setImageBitmap(bitmap)
+                        binding.ivItemImage.setBackgroundColor(0x00000000)
                     }
                 }
             }

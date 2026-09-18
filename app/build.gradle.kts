@@ -63,14 +63,15 @@ dependencies {
     // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
-    // Coroutines
+    // Coroutines (including Google Tasks bridge for Firebase)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 
-    // Image loading
+    // Image loading + EXIF handling
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.exifinterface:exifinterface:1.3.6")
 
-    // Firebase (BOM ensures compatible versions)
+    // Firebase (BOM ensures compatible versions across all Firebase libraries)
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
