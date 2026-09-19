@@ -9,6 +9,8 @@ import com.example.shelastudio.data.repository.OutfitRepository
 import com.example.shelastudio.data.repository.PreferenceRepository
 import com.example.shelastudio.data.repository.WardrobeRepository
 import com.example.shelastudio.data.repository.WeatherRepository
+import com.example.shelastudio.data.repository.AuthRepository
+import com.example.shelastudio.data.repository.FirebaseAuthRepository
 
 /**
  * Central repository provider.
@@ -17,6 +19,8 @@ import com.example.shelastudio.data.repository.WeatherRepository
  */
 object RepositoryProvider {
 
+    // Authentication
+    val auth: AuthRepository by lazy { FirebaseAuthRepository() }
     // Firebase-backed
     val wardrobe: WardrobeRepository by lazy { FirebaseWardrobeRepository() }
     val outfits: OutfitRepository by lazy { FirebaseOutfitRepository() }
