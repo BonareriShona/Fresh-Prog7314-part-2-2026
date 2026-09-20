@@ -12,7 +12,20 @@
           "package_name": "com.example.shelastudio"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "371626592710-qb2mi80h839a170vmb8sqvad3n9imvi8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shelastudio",
+            "certificate_hash": "eea1fe26058f08d7e445ba5fb5d7ac42b9629ea0"
+          }
+        },
+        {
+          "client_id": "371626592710-3m4464slf7er3nlekgdse96r9c1jhfek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDgo7G-8tvcITh-_AZR2qqg00B8rndHjmE"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371626592710-3m4464slf7er3nlekgdse96r9c1jhfek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
