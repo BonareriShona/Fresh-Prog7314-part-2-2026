@@ -182,10 +182,13 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "About selected"
+                    "Navigating to About"
+                )
+
+                findNavController().navigate(
+                    R.id.action_settingsFragment_to_aboutFragment
                 )
             }
-
 
         binding.btnLogout
             .setOnClickListener {

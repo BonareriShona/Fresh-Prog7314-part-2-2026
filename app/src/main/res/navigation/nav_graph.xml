@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
@@ -27,10 +29,12 @@
 
     </fragment>
 
+
     <fragment
         android:id="@+id/weatherSuggestionsFragment"
         android:name="com.example.shelastudio.ui.home.WeatherSuggestionsFragment"
         android:label="Weather Suggestions" />
+
 
     <fragment
         android:id="@+id/closetFragment"
@@ -51,15 +55,18 @@
 
     </fragment>
 
+
     <fragment
         android:id="@+id/addItemFragment"
         android:name="com.example.shelastudio.ui.closet.AddItemFragment"
         android:label="Add Item" />
 
+
     <fragment
         android:id="@+id/itemDetailFragment"
         android:name="com.example.shelastudio.ui.closet.ItemDetailFragment"
         android:label="Item Detail" />
+
 
     <fragment
         android:id="@+id/myOutfitsFragment"
@@ -76,25 +83,30 @@
 
     </fragment>
 
+
     <fragment
         android:id="@+id/createOutfitFragment"
         android:name="com.example.shelastudio.ui.outfit.CreateOutfitFragment"
         android:label="Create Outfit" />
+
 
     <fragment
         android:id="@+id/outfitDetailFragment"
         android:name="com.example.shelastudio.ui.outfit.OutfitDetailFragment"
         android:label="Outfit Detail" />
 
+
     <fragment
         android:id="@+id/createFragment"
         android:name="com.example.shelastudio.ui.create.CreateFragment"
         android:label="Create" />
 
+
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.example.shelastudio.ui.community.CommunityFragment"
         android:label="Community" />
+
 
     <fragment
         android:id="@+id/profileFragment"
@@ -107,10 +119,12 @@
 
     </fragment>
 
+
+    <!-- Main Settings screen -->
     <fragment
-        android:id="@+id/helpSupportFragment"
-        android:name="com.example.shelastudio.ui.settings.HelpSupportFragment"
-        android:label="Help &amp; Support" />
+        android:id="@+id/settingsFragment"
+        android:name="com.example.shelastudio.ui.settings.SettingsFragment"
+        android:label="Settings">
 
         <action
             android:id="@+id/action_settingsFragment_to_personalInfoFragment"
@@ -124,16 +138,50 @@
             android:id="@+id/action_settingsFragment_to_passwordSecurityFragment"
             app:destination="@id/passwordSecurityFragment" />
 
+        <action
+            android:id="@+id/action_settingsFragment_to_helpSupportFragment"
+            app:destination="@id/helpSupportFragment" />
+
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+
     </fragment>
 
+
+    <!-- Personal Information -->
     <fragment
         android:id="@+id/personalInfoFragment"
         android:name="com.example.shelastudio.ui.settings.PersonalInfoFragment"
         android:label="Personal Information" />
 
+
+    <!-- App Preferences -->
     <fragment
         android:id="@+id/appPreferencesFragment"
         android:name="com.example.shelastudio.ui.settings.AppPreferencesFragment"
         android:label="App Preferences" />
+
+
+    <!-- Password & Security -->
+    <fragment
+        android:id="@+id/passwordSecurityFragment"
+        android:name="com.example.shelastudio.ui.settings.PasswordSecurityFragment"
+        android:label="Password &amp; Security" />
+
+
+    <!-- Help & Support -->
+    <fragment
+        android:id="@+id/helpSupportFragment"
+        android:name="com.example.shelastudio.ui.settings.HelpSupportFragment"
+        android:label="Help &amp; Support" />
+
+
+    <!-- About -->
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.shelastudio.ui.settings.AboutFragment"
+        android:label="About" />
+
 
 </navigation>
