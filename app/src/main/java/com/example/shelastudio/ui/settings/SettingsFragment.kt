@@ -168,7 +168,11 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "Help & Support selected"
+                    "Navigating to Help & Support"
+                )
+
+                findNavController().navigate(
+                    R.id.action_settingsFragment_to_helpSupportFragment
                 )
             }
 

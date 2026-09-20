@@ -108,9 +108,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.shelastudio.ui.settings.SettingsFragment"
-        android:label="Settings">
+        android:id="@+id/helpSupportFragment"
+        android:name="com.example.shelastudio.ui.settings.HelpSupportFragment"
+        android:label="Help &amp; Support" />
 
         <action
             android:id="@+id/action_settingsFragment_to_personalInfoFragment"
