@@ -6,7 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.shelastudio.data.model.UserProfile
 import com.example.shelastudio.databinding.ActivitySignupBinding
+import com.example.shelastudio.di.RepositoryProvider
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class SignupActivity : AppCompatActivity() {
@@ -17,6 +21,8 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivitySignupBinding
+
+    private val authRepository = RepositoryProvider.auth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +42,11 @@ class SignupActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
     }
 
     /**
@@ -84,11 +95,8 @@ class SignupActivity : AppCompatActivity() {
             Log.d(TAG, "Sign Up clicked: name='$fullName', email='$email'")
 
             if (validateInputs(fullName, email, mobile, dob, password, confirmPassword)) {
-                Log.i(TAG, "Signup validation passed")
-                Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
-                // Navigate to MainActivity after signup
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                Log.i(TAG, "Signup validation passed - creating Firebase account")
+                createAccount(fullName, email, mobile, dob, password)
             }
         }
 
@@ -96,6 +104,96 @@ class SignupActivity : AppCompatActivity() {
         binding.tvAlreadyHaveAccount.setOnClickListener {
             Log.d(TAG, "Already have account clicked - returning to Login")
             finish() // Returns to LoginActivity
+        }
+    }
+
+    /**
+     * Creates the Firebase Authentication account and writes the matching
+     * profile document to Firestore at users/{uid}.
+     *
+     * The button is disabled while the request is in flight so a double tap
+     * cannot trigger two account creation attempts.
+     */
+    private fun createAccount(
+        fullName: String,
+        email: String,
+        mobile: String,
+        dob: String,
+        password: String
+    ) {
+        setLoading(true)
+
+        val profile = UserProfile(
+            fullName = fullName,
+            email = email,
+            mobileNumber = mobile,
+            dateOfBirth = dob
+        )
+
+        lifecycleScope.launch {
+            authRepository.signUpWithEmail(email, password, profile)
+                .onSuccess { uid ->
+                    Log.i(TAG, "Account created successfully. UID=$uid")
+                    Toast.makeText(
+                        this@SignupActivity,
+                        "Welcome to ShelaStudio, ${fullName.substringBefore(' ')}!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    // finishAffinity clears the auth stack so the back button
+                    // cannot return the user to signup or login once authenticated.
+                    startActivity(Intent(this@SignupActivity, MainActivity::class.java))
+                    finishAffinity()
+                }
+                .onFailure { e ->
+                    Log.e(TAG, "Account creation failed", e)
+                    setLoading(false)
+                    handleSignupError(e)
+                }
+        }
+    }
+
+    /**
+     * Toggles the signup button between its idle and in-progress states.
+     */
+    private fun setLoading(loading: Boolean) {
+        binding.btnSignUp.isEnabled = !loading
+        binding.btnSignUp.text =
+            if (loading) "Creating account…" else getString(R.string.sign_up)
+    }
+
+    /**
+     * Translates a Firebase exception into feedback the user can act on,
+     * attaching it to the relevant input field where possible.
+     */
+    private fun handleSignupError(e: Throwable) {
+        val raw = e.message.orEmpty()
+
+        when {
+            raw.contains("already in use", true) -> {
+                binding.tilEmail.error = "That email is already registered"
+                Log.w(TAG, "Signup rejected: email already in use")
+            }
+            raw.contains("badly formatted", true) -> {
+                binding.tilEmail.error = "That email address isn't valid"
+                Log.w(TAG, "Signup rejected: malformed email")
+            }
+            raw.contains("password is invalid", true) ||
+                    raw.contains("at least 6 characters", true) -> {
+                binding.tilPassword.error = "Please choose a stronger password"
+                Log.w(TAG, "Signup rejected: weak password")
+            }
+            raw.contains("network", true) -> {
+                Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show()
+                Log.w(TAG, "Signup failed: network unavailable")
+            }
+            else -> {
+                Toast.makeText(
+                    this,
+                    "Could not create account. Please try again.",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 
