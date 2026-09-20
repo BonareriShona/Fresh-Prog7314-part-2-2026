@@ -1,12 +1,13 @@
 package com.example.shelastudio
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.shelastudio.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.shelastudio.di.RepositoryProvider
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,26 +23,47 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Log.d(TAG, "onCreate: MainActivity with bottom nav")
 
-        ensureSignedIn()
+        // Navigation is only wired up once a valid session is confirmed,
+        // otherwise fragments would load and immediately fail on Firestore
+        // calls that require an authenticated UID.
+        if (!ensureSignedIn()) return
+
         setupBottomNavigation()
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
+    }
+
     /**
-     * TEMPORARY: Signs the user in anonymously so Firestore rules pass.
-     * Replaced with real Google Sign-In in Part 10.
+     * Guards the main app. If no authenticated session exists the user is
+     * returned to the login screen, so every Firestore path below this
+     * point is guaranteed a valid UID.
+     *
+     * @return true if an authenticated session is active, false if the user
+     *         was redirected to sign in.
      */
-    private fun ensureSignedIn() {
-        val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser == null) {
-            auth.signInAnonymously()
-                .addOnSuccessListener { result ->
-                    Log.i(TAG, "Anonymous sign-in OK. UID=${result.user?.uid}")
-                }
-                .addOnFailureListener { e ->
-                    Log.e(TAG, "Anonymous sign-in failed", e)
-                }
+    private fun ensureSignedIn(): Boolean {
+        val uid = RepositoryProvider.auth.currentUserId()
+        return if (uid == null) {
+            Log.w(TAG, "No authenticated session - redirecting to LoginActivity")
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            false
         } else {
-            Log.i(TAG, "Already signed in as ${auth.currentUser?.uid}")
+            Log.i(TAG, "Authenticated session active. UID=$uid")
+            true
         }
     }
 
