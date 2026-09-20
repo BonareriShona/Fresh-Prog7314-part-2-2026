@@ -113,12 +113,16 @@
         android:label="Settings">
 
         <action
+            android:id="@+id/action_settingsFragment_to_personalInfoFragment"
+            app:destination="@id/personalInfoFragment" />
+
+        <action
             android:id="@+id/action_settingsFragment_to_appPreferencesFragment"
             app:destination="@id/appPreferencesFragment" />
 
         <action
-            android:id="@+id/action_settingsFragment_to_personalInfoFragment"
-            app:destination="@id/personalInfoFragment" />
+            android:id="@+id/action_settingsFragment_to_passwordSecurityFragment"
+            app:destination="@id/passwordSecurityFragment" />
 
     </fragment>
 

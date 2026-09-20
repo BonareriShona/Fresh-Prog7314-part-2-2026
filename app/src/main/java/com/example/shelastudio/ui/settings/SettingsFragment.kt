@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.shelastudio.di.RepositoryProvider
 import com.example.shelastudio.R
 import com.example.shelastudio.databinding.FragmentSettingsBinding
 
@@ -129,7 +130,11 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "Password & Security selected"
+                    "Navigating to Password & Security"
+                )
+
+                findNavController().navigate(
+                    R.id.action_settingsFragment_to_passwordSecurityFragment
                 )
             }
 
@@ -183,10 +188,16 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "Logout selected"
+                    "Signing user out"
+                )
+
+                RepositoryProvider.auth.signOut()
+
+                Log.i(
+                    TAG,
+                    "User signed out"
                 )
             }
-    }
 
 
     override fun onDestroyView() {
