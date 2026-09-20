@@ -55,16 +55,15 @@
 
 
         <Button
-            android:id="@+id/btnAccessibility"
+            android:id="@+id/btnAppPreferences"
             style="@style/Widget.ShelaStudio.Button.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Accessibility" />
-
+            android:text="App Preferences" />
 
         <Button
-            android:id="@+id/btnHelpSupport"
+            android:id="@+isd/btnHelpSupport"
             style="@style/Widget.ShelaStudio.Button.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

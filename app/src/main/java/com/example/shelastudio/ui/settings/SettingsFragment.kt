@@ -144,13 +144,15 @@ class SettingsFragment : Fragment() {
             }
 
 
-        binding.btnAccessibility
+        binding.btnAppPreferences
             .setOnClickListener {
 
                 Log.d(
                     TAG,
-                    "Accessibility selected"
+                    "App Preferences selected"
                 )
+
+                // Navigation to the preferences screen will be connected next.
             }
 
 
