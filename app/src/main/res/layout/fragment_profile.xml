@@ -8,6 +8,7 @@
     android:padding="@dimen/screen_margin">
 
     <TextView
+        android:id="@+id/tvProfileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile"
@@ -16,12 +17,24 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvProfileSubtitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Profile content coming on Day 5"
+        android:layout_marginTop="8dp"
+        android:text="Manage your account and application settings."
         android:textAppearance="@style/TextAppearance.ShelaStudio.BodyMuted"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        style="@style/Widget.ShelaStudio.Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Settings"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileSubtitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
