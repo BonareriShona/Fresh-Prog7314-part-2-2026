@@ -116,7 +116,16 @@
             android:id="@+id/action_settingsFragment_to_appPreferencesFragment"
             app:destination="@id/appPreferencesFragment" />
 
+        <action
+            android:id="@+id/action_settingsFragment_to_personalInfoFragment"
+            app:destination="@id/personalInfoFragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/personalInfoFragment"
+        android:name="com.example.shelastudio.ui.settings.PersonalInfoFragment"
+        android:label="Personal Information" />
 
     <fragment
         android:id="@+id/appPreferencesFragment"

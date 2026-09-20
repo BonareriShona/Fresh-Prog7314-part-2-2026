@@ -116,14 +116,13 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "Personal Information selected"
+                    "Navigating to Personal Information"
                 )
 
-                /*
-                Navigation will be added next.
-                */
+                findNavController().navigate(
+                    R.id.action_settingsFragment_to_personalInfoFragment
+                )
             }
-
 
         binding.btnPassword
             .setOnClickListener {
