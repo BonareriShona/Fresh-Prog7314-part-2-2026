@@ -21,10 +21,12 @@ class LaunchActivity : AppCompatActivity() {
 
         // After 2 seconds, move to Login screen
         Handler(Looper.getMainLooper()).postDelayed({
-            Log.i(TAG, "Launch delay finished, navigating to LoginActivity")
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()  // Remove from back stack so back button exits app
+            val signedIn = com.example.shelastudio.di.RepositoryProvider.auth.isSignedIn()
+            Log.i(TAG, "Launch delay finished. Existing session=$signedIn")
+
+            val destination = if (signedIn) MainActivity::class.java else LoginActivity::class.java
+            startActivity(Intent(this, destination))
+            finish()
         }, LAUNCH_DELAY_MS)
     }
 
