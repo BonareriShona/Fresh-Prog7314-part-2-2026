@@ -8,10 +8,11 @@ import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-
+import com.example.shelastudio.R
 import com.example.shelastudio.databinding.FragmentSettingsBinding
 
 import kotlinx.coroutines.launch
@@ -149,10 +150,12 @@ class SettingsFragment : Fragment() {
 
                 Log.d(
                     TAG,
-                    "App Preferences selected"
+                    "Navigating to App Preferences"
                 )
 
-                // Navigation to the preferences screen will be connected next.
+                findNavController().navigate(
+                    R.id.action_settingsFragment_to_appPreferencesFragment
+                )
             }
 
 

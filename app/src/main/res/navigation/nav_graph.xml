@@ -99,6 +99,28 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.shelastudio.ui.profile.ProfileFragment"
-        android:label="Profile" />
+        android:label="Profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.shelastudio.ui.settings.SettingsFragment"
+        android:label="Settings">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_appPreferencesFragment"
+            app:destination="@id/appPreferencesFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appPreferencesFragment"
+        android:name="com.example.shelastudio.ui.settings.AppPreferencesFragment"
+        android:label="App Preferences" />
 
 </navigation>
